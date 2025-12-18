@@ -18,7 +18,11 @@ I have been spending a lot of time learning Spanish, and Duolingo has been super
 
 #### Downloading all the words
 
-Duolingo has a practice section that shows all the words you’ve learned along with their definitions. Unfortunately, Duolingo doesn’t have an export option, and they only load ~50 words at a time; then you have to click **Load more** and another 50 load. As a software engineer, I was thinking about writing some kind of automation to keep loading things, but I realized I was overthinking this.
+Duolingo has a practice section that shows all the words you’ve learned along with their definitions. Unfortunately, Duolingo doesn’t have an export option, and they only load ~50 words at a time; then you have to click **Load more** and another 50 load. 
+
+<img width="1720" height="1139" alt="image" src="https://github.com/user-attachments/assets/489c48cb-7d2f-4eb3-a774-d09e97a6963c" />
+
+As a software engineer, I was thinking about writing some kind of automation to keep loading things, but I realized I was overthinking this.
 
 I found the easiest way to download all words was to just keep clicking **Load more** until everything was loaded. It only took about a minute.
 
