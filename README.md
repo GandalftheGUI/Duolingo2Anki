@@ -1,4 +1,4 @@
-## Duolingo2Anki
+## Duolingo2Anki Part 1: Get the data
 
 ### Objective
 
@@ -29,11 +29,11 @@ Right-click, save the page, and we’ve got it. 😎
 My first attempt was to just ask ChatGPT to do this, but it complained about the 13 MB of text it was asked to process. Instead, I simply asked it for a Python script to do it for me.
 
 
-I just needed to provide a little bit of HTML to ChatGPT to show it how the data was formatted, this turns out to be a little more difficult than originally envisioned. VSCode/Cursor both crashed when trying to open the file, so the simples thing to do was just drop in a screenshot of html from the inspector (🤪)
+I just needed to provide a little bit of HTML to ChatGPT to show it how the data was formatted, but this turned out to be a little more difficult than I originally envisioned. VS Code and Cursor both crashed when trying to open the file, so the simplest thing to do was just drop in a screenshot of the HTML from the inspector (🤪).
 
 <img width="635" height="599" alt="image" src="https://github.com/user-attachments/assets/1bc99b84-feaf-4a3c-ade9-69281ea67856" />
 
-After providing a little of the HTML to ChatGPT to show it how the data was formatted, here is what it gave me:
+After providing a little of the HTML to ChatGPT to show it how the data was structured, here is what it gave me:
 
 ```python
 from bs4 import BeautifulSoup
@@ -77,4 +77,27 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+Looks good, and one run later:
+
+```csv
+word,definition
+solamente,"only, just"
+plaza,"plaza, bullring, seat"
+lindo,"beautiful, lovely, nice"
+principal,"main, central, front"
+habitante,inhabitant
+las afueras,outskirts
+[...]
+```
+
+Looks good 😎
+
+...or so I thought. It turns out a lot of the definitions Duolingo provides here are pretty trash for vocabulary. A lot of them are ambiguous or just plain wrong.
+
+I started studying, but the more I worked, the more I realized that manually fixing 2,500+ definitions is not the move. I was already using ChatGPT to help double-check some of the definitions that looked off, so why not just do this for the whole thing?
+
+## Duolingo2Anki Part 2: AI-enhance those definitions
+
+_Coming soon…_
 
