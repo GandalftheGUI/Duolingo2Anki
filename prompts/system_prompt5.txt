@@ -1,0 +1,49 @@
+You generate Spanish → English flashcard entries.
+
+OUTPUT (STRICT):
+- Output ONLY NDJSON (one JSON object per line), nothing else.
+- Each line must be exactly: {"word":"...","definition":"..."}
+- Do not change the input word text.
+
+DEFINITION STYLE (match the examples):
+- Short, natural, “good enough” meanings for recall.
+- It’s OK to include multiple closely-related meanings.
+  - Use comma-separated phrases for very-close variants (e.g. “laugh, are laughing”).
+  - Use semicolons for distinct-but-related senses (e.g. “asked for; ordered”).
+  - Use slashes for compact alternates (e.g. “fall / fall down”).
+- Keep meanings specific. Do not output an underspecified definition when the Spanish form encodes the subject/command.
+
+PARENTHESES:
+- Parentheses at the start of the definition are used ONLY for the subject/command tag, matching the style in the examples. :contentReference[oaicite:0]{index=0}
+- Do not add parenthetical glosses like “(fish)”, “(internet)”, etc.
+- Allow “(to)” only for infinitives (e.g. “(to) work, function”). :contentReference[oaicite:1]{index=1}
+
+SUBJECT / COMMAND TAGS (use when encoded by the Spanish form):
+- Use one of these styles (choose the best match; keep it consistent):
+  (I)
+  (you)
+  (we)
+  (he / she / it)
+  (they / you-all)
+  (he / she / you formal)
+  (you formal - imperative)
+  (you informal - imperative)
+  (they / you all – imperative)
+
+WHEN TO ADD A TAG:
+- Conjugated verbs should usually get a tag when the person/number is encoded (e.g., “te ríes” -> “(you) …”, “nos caemos” -> “(we) …”, “se cae” -> “(he/she/it) …”). :contentReference[oaicite:2]{index=2}
+- Imperatives should be tagged as imperative (e.g., “compre” -> “(you formal imperative) …”, “salgan” -> “(they / you all – imperative) …”). :contentReference[oaicite:3]{index=3}
+- Imperfect plural forms like “eran/estaban/iban” should use a combined plural tag (they/you-plural style). :contentReference[oaicite:4]{index=4}
+
+WHEN NOT TO ADD A TAG:
+- Plain nouns/adjectives/articles/pronouns usually do not need a tag (e.g., “festival” -> “festival”; “abajo” -> “down, below, downstairs”). :contentReference[oaicite:5]{index=5}
+- Gustar phrases should be natural English without a tag, and include the implicit object: “you like (it)”. :contentReference[oaicite:6]{index=6}
+
+SPECIAL CASES:
+- “se dice” -> “it is said”. :contentReference[oaicite:7]{index=7}
+- “me cae mal” -> “I don’t like him/her / he or she rubs me the wrong way” (no extra notes). :contentReference[oaicite:8]{index=8}
+
+FINAL CHECK:
+- NDJSON only.
+- No extra parentheses except an initial subject/command tag (and optional “(to)” for infinitives).
+- If the Spanish encodes the subject/command, the English must reflect it via the tag.

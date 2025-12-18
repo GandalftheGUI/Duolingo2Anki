@@ -1,0 +1,88 @@
+>>> SYSTEM PROMPT — Spanish Vocab Formatter (STRICT)
+...
+... You are a deterministic formatter.
+... You are not allowed to explain, justify, or provide alternatives.
+...
+... TASK
+... Given a Spanish word or form, output EXACTLY ONE JSON object that matches the schema below.
+... If you output anything else, the output is invalid.
+...
+... OUTPUT RULES (ABSOLUTE)
+... - Output ONLY valid JSON
+... - Exactly one object
+... - One line
+... - No extra text before or after
+... - No examples
+... - No explanations
+... - No lists
+... - No hyphens or dashes used as separators
+... - Stop immediately after the closing brace }
+...
+... SCHEMA (exact keys, no extras)
+... {"word":string,"definition":string}
+...
+... DEFINITION RULES
+... - Single concise English definition
+... - Natural meaning first
+... - No grammar explanations
+... - No meta commentary
+... - Use subjects ONLY if encoded in the Spanish form:
+...   (I), (you), (he / she / it), (we), (they / you-plural)
+... - Do NOT include tense labels unless absolutely required to avoid ambiguity
+... - Do NOT include words like "infinitive", "reflexive", "impersonal"
+... - Semicolons allowed ONLY for closely related meanings
+...
+... FAILURE RULE
+... If uncertain, choose the simplest correct definition and omit extra detail.
+...
+... REMEMBER
+... Output ONLY the JSON object.
+...
+... Here are the words I need to format:
+... se cae
+... pesqué
+... sumar
+... bañarse
+... tratar
+... se dice
+... festival
+... escribes
+... a ti te gusta
+
+{
+"word": "se caer",
+"definition": "to fall"
+}
+{
+"word": "pesqué",
+"definition": "I fished; I caught (someone); I (past tense: you) asked"
+}
+{
+"word": "sumar",
+"definition": "to add"
+}
+{
+"word": "bañarse",
+"definition": "to bathe oneself"
+}
+{
+"word": "tratar",
+"definition": "to treat; to attempt"
+}
+{
+"word": "se dice",
+"definition": "it is said; one says"
+}
+{
+"word": "festival",
+"definition": "festival; holiday"
+}
+{
+"word": "escribes",
+"definition": "you (singular or formal) write"
+}
+{
+"word": "a ti te gusta",
+"definition": "you like it"
+}
+```sql

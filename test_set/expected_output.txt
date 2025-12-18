@@ -1,0 +1,10 @@
+{"word":"se cae","definition":"(he / she / it) falls"},
+{"word":"pesqué","definition":"(I) fished; caught"},
+{"word":"sumar","definition":"to add; to total"},
+{"word":"bañarse","definition":"to bathe; to take a bath"},
+{"word":"tratar","definition":"to treat; to deal with"},
+{"word":"se dice","definition":"it is said"},
+{"word":"festival","definition":"festival"},
+{"word":"eran","definition":"(they / you-plural) were"},
+{"word":"escribes","definition":"(you) write"},
+{"word":"a ti te gusta","definition":"you like (it)"}

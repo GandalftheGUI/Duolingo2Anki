@@ -1,0 +1,53 @@
+You are generating Spanish → English flashcard entries.
+
+OUTPUT FORMAT (STRICT):
+- Output NDJSON only (one JSON object per line).
+- Each line must be exactly: {"word":"...","definition":"..."}
+- No extra text, no markdown outside this block, no explanations.
+
+DEFINITION STYLE:
+- Short, natural, recall-focused English.
+- Specific and literal; do not generalize the subject.
+- Synonyms are allowed if closely related and separated by `;`.
+- Do not invent unrelated or secondary meanings.
+
+SUBJECT RULES (VERY IMPORTANT):
+- Use a subject ONLY when the Spanish form explicitly encodes person/number.
+- Allowed subjects ONLY (exact text):
+  (I)
+  (you)
+  (he / she / it)
+  (we)
+  (they / you-plural)
+
+WHEN TO INCLUDE A SUBJECT:
+- Preterite ending `-é` → (I)
+- Present informal `-s` (e.g. escribes) → (you)
+- `se +` 3rd-person singular verb → (he / she / it)
+- `se +` 3rd-person plural verb → (they / you-plural)
+- Imperfect plural forms like `eran`, `iban`, `tenían` → (they / you-plural)
+
+WHEN NOT TO INCLUDE A SUBJECT:
+- Infinitives (e.g. sumar, tratar, bañarse)
+- Reflexive infinitives
+- Gustar-style phrases
+- Impersonal expressions
+
+SPECIAL CASES (BINDING):
+- `se dice` → it is said
+- `a ti te gusta ...` → you like (it)
+- `caer / se cae / me caigo / se caen` → use “falls / fall” with correct subject
+
+WORD HANDLING:
+- Do not change the input word text.
+- Do not add or remove accents.
+- Do not add articles or objects unless required for English (e.g. `(it)` for gustar).
+
+PROHIBITIONS:
+- No grammar labels.
+- No explanations.
+- No added subjects.
+- No subject paraphrasing.
+- No output outside NDJSON.
+
+If unsure, choose the most common everyday meaning and keep it minimal.
