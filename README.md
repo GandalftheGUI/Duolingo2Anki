@@ -1,1 +1,75 @@
-# Duolingo2Anki
+## Duolingo2Anki
+
+### Objective
+
+Get vocabulary words from Duolingo into Anki for easier and more effective vocabulary studying.
+
+### Context
+
+I have been spending a lot of time learning Spanish, and Duolingo has been super helpful in that regard. What hasn’t been great is retaining all the vocabulary Duolingo is blasting me with, and their vocabulary review practice is pretty lacking, to put it mildly. I have used Anki for spaced repetition practice (flashcards), and I think that is a better tool for vocabulary practice.
+
+### Plan of action
+
+1. Download all words learned somehow (~2,500).
+2. Format those words into a CSV, formatted like: `[spanish_word, english_definition]`.
+3. Learn some Spanish vocabulary.
+
+### Execution
+
+#### Downloading all the words
+
+Duolingo has a practice section that shows all the words you’ve learned along with their definitions. Unfortunately, Duolingo doesn’t have an export option, and they only load ~50 words at a time; then you have to click **Load more** and another 50 load. As a software engineer, I was thinking about writing some kind of automation to keep loading things, but I realized I was overthinking this.
+
+I found the easiest way to download all words was to just keep clicking **Load more** until everything was loaded. It only took about a minute.
+
+Right-click, save the page, and we’ve got it. 😎
+
+#### Turn the HTML into a CSV
+
+My first attempt was to just ask ChatGPT to do this, but it complained about the 13 MB of text it was asked to process. Instead, I simply asked it for a Python script to do it for me.
+
+After providing a little of the HTML to ChatGPT to show it how the data was formatted, here is what it gave me:
+
+```python
+from bs4 import BeautifulSoup
+import csv
+
+INPUT_HTML = "input.html"
+OUTPUT_CSV = "words.csv"
+
+
+def main():
+    # Read and parse the HTML
+    with open(INPUT_HTML, "r", encoding="utf-8") as f:
+        soup = BeautifulSoup(f, "lxml")  # or "html.parser"
+
+    rows = []
+
+    # Each word/definition pair seems to live in an <li class="_2g-qq"> ... </li>
+    for li in soup.select("li._2g-qq"):
+        h3 = li.find("h3")
+        if not h3:
+            continue
+
+        p = h3.find_next("p")
+        if not p:
+            continue
+
+        word = h3.get_text(strip=True)
+        definition = " ".join(p.stripped_strings)
+
+        rows.append((word, definition))
+
+    # Write the CSV
+    with open(OUTPUT_CSV, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(["word", "definition"])
+        writer.writerows(rows)
+
+    print(f"Wrote {len(rows)} rows to {OUTPUT_CSV}")
+
+
+if __name__ == "__main__":
+    main()
+```
+
