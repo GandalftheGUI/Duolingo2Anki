@@ -93,3 +93,151 @@ curl -s http://127.0.0.1:11434/api/chat \
     }')"
 
     {"model":"qwen2.5:14b","created_at":"2025-12-18T10:31:02.503682Z","message":{"role":"assistant","content":"{\"word\":\"se cae\",\"definition\":\"it falls\"}\n{\"word\":\"pesqué\",\"definition\":\"(I) fished, (he / she / it) fished\"}\n{\"word\":\"sumar\",\"definition\":\"(to) add, (to) sum up\"}\n{\"word\":\"bañarse\",\"definition\":\"(to) take a bath, (to) bathe (oneself)\"}\n{\"word\":\"tratar\",\"definition\":\"(to) treat, (to) handle, (to) deal with\"}\n{\"word\":\"se dice\",\"definition\":\"it is said\"}\n{\"word\":\"festival\",\"definition\":\"festival\"}\n{\"word\":\"estaban\",\"definition\":\"(they / you-plural) were\"}\n{\"word\":\"escribes\",\"definition\":\"(you) write\"}\n{\"word\":\"a ti te gusta\",\"definition\":\"you like (it)\"}\n{\"word\":\"déselo\",\"definition\":\"give it to him / her (polite imperative)\"}"},"done":true,"done_reason":"stop","total_duration":12314784417,"load_duration":48712500,"prompt_eval_count":733,"prompt_eval_duration":2921575541,"eval_count":196,"eval_duration":9338761792}%
+
+
+
+
+
+
+for prompt in prompts/system_prompt*.txt; do
+  echo
+  echo "=============================="
+  echo "PROMPT: $(basename "$prompt")"
+  echo "=============================="
+
+  CONTENT=$(
+    curl -sN http://127.0.0.1:11434/api/chat \
+      -H "Content-Type: application/json" \
+      -d "$(jq -n \
+        --arg system "$(cat "$prompt")" \
+        --arg user "$(cat test_set/test_words.txt)" \
+        '{
+          model: "qwen2.5:14b",
+          messages: [
+            {role:"system", content:$system},
+            {role:"user", content:$user}
+          ],
+          stream: true
+        }')" \
+    | jq -rj '.message.content // empty'
+  )
+
+  # Pretty-print: word → definition
+  printf '%s\n' "$CONTENT" \
+    | while IFS= read -r line; do
+        [ -z "$line" ] && continue
+        WORD=$(printf '%s' "$line" | jq -r '.word' 2>/dev/null)
+        DEF=$(printf '%s' "$line" | jq -r '.definition' 2>/dev/null)
+        if [ "$WORD" = "null" ] || [ "$DEF" = "null" ]; then
+          echo "! bad line: $line"
+        else
+          echo "- $WORD → $DEF"
+        fi
+      done
+done
+
+
+==============================
+PROMPT: system_prompt1.txt
+==============================
+- se cae → it falls; it is falling down
+- pesqué → (I / you) caught (preterite of pescar)
+- sumar → (to) add; to sum up; to total
+- bañarse → (to) bathe (oneself)
+- tratar → (to) treat; to handle
+- se dice → it is said (literally: it says itself)
+- festival → festival; celebration
+- estaban → (they / you-plural) were (present of estar)
+- escribes → you write (present Ud. imperative of escribir)
+- a ti te gusta → (to) you like something; you enjoy it
+- déselo → give it to him / her (Ud. imperative of dar)
+
+==============================
+PROMPT: system_prompt2.txt
+==============================
+- se cae → falls
+- pesqué → I caught
+- sumar → to add; to score (in sports)
+- bañarse → to bathe oneself
+- tratar → to treat; to deal with
+- se dice → it is said
+- festival → festival
+- estaban → they were; you (plural) were
+- escribes → you write
+- a ti te gusta → you like
+- déselo → give it to him/her/it
+
+==============================
+PROMPT: system_prompt3.txt
+==============================
+- se cae → falls
+- pesqué → (I) caught (it)
+- sumar → to add
+- bañarse → to bathe oneself
+- tratar → to treat / to try
+- se dice → it is said
+- festival → festival
+- estaban → (they / you-plural) were
+- escribes → (you) write
+- a ti te gusta → you like (it)
+- déselo → give it to him / her / them
+
+==============================
+PROMPT: system_prompt4.txt
+==============================
+- se cae → (he / she / it) falls
+- pesqué → (I) caught (fish)
+- sumar → to add
+- bañarse → to bathe (oneself)
+- tratar → to treat; to handle
+- se dice → it is said
+- festival → festival
+- estaban → (they / you-plural) were
+- escribes → (you) write
+- a ti te gusta → you like (it)
+- déselo → give it to him/her
+
+==============================
+PROMPT: system_prompt5.txt
+==============================
+- se cae → (he/she/it) falls down
+- pesqué → (I) caught, landed (a fish)
+- sumar → to add, sum up; score
+- bañarse → to bathe oneself
+- tratar → to treat, deal with; try, attempt
+- se dice → it is said
+- festival → festival
+- estaban → (they / you-all) were (imperfect plural)
+- escribes → (you formal) write
+- a ti te gusta → you like (it)
+- déselo → (you formal imperative) give it
+
+==============================
+PROMPT: system_prompt6.txt
+==============================
+- se cae → it falls
+- pesqué → (I) caught (it)
+-  →
+-  →
+-  →
+- se dice → it is said
+- festival → festival
+- estaban → (they / you-plural) were
+- escribes → (you) write
+- a ti te gusta → you like (it)
+- déselo → (you formal imperative) give (it)
+
+==============================
+PROMPT: system_prompt7.txt
+==============================
+- se cae → (it) falls
+- pesqué → (I) caught (it)
+-  →
+- bañarse → (he / she / it) bathes
+- tratar → (to) treat, deal with
+- se dice → it is said
+- festival → festival
+- estaban → (they / you-plural) were
+- escribes → (you) write
+- a ti te gusta → you like (it)
+- déselo → give it to him / her (you formal imperative)

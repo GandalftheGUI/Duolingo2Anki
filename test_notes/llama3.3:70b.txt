@@ -1,0 +1,141 @@
+for prompt in prompts/system_prompt*.txt; do
+  echo
+  echo "=============================="
+  echo "PROMPT: $(basename "$prompt")"
+  echo "=============================="
+
+  CONTENT=$(
+    curl -sN http://127.0.0.1:11434/api/chat \
+      -H "Content-Type: application/json" \
+      -d "$(jq -n \
+        --arg system "$(cat "$prompt")" \
+        --arg user "$(cat test_set/test_words.txt)" \
+        '{
+          model: "llama3.3:70b",
+          messages: [
+            {role:"system", content:$system},
+            {role:"user", content:$user}
+          ],
+          stream: true
+        }')" \
+    | jq -rj '.message.content // empty'
+  )
+
+  # Pretty-print: word → definition
+  printf '%s\n' "$CONTENT" \
+    | while IFS= read -r line; do
+        [ -z "$line" ] && continue
+        WORD=$(printf '%s' "$line" | jq -r '.word' 2>/dev/null)
+        DEF=$(printf '%s' "$line" | jq -r '.definition' 2>/dev/null)
+        if [ "$WORD" = "null" ] || [ "$DEF" = "null" ]; then
+          echo "! bad line: $line"
+        else
+          echo "- $WORD → $DEF"
+        fi
+      done
+done
+
+==============================
+PROMPT: system_prompt1.txt
+==============================
+- se cae → it falls; he/she/it falls
+- pesqué → (I) caught (fish); (I) caught (preterite of pescar)
+- sumar → to add
+- bañarse → to bathe oneself; to take a bath
+- tratar → to try; to treat
+- se dice → it is said; one says; they say
+- festival → festival
+- estaban → (they / you-plural) were (ser, imperfect)
+- escribes → (you) write
+- a ti te gusta → you like (to you, it is pleasing)
+- déselo → give it to him/her/you (Ud. imperative of dar)
+
+==============================
+PROMPT: system_prompt2.txt
+==============================
+- se cae → it falls
+- pesqué → I caught
+- sumar → to add
+- bañarse → to bathe oneself
+- tratar → to try
+- se dice → it is said
+- festival → festival
+- estaban → they were
+- escribes → you write
+- a ti te gusta → you like
+- déselo → give it to him or her
+
+==============================
+PROMPT: system_prompt3.txt
+==============================
+- se cae → it falls
+- pesqué → I caught
+- sumar → to add
+- bañarse → to bathe oneself
+- tratar → to try; to treat
+- se dice → it is said
+- festival → festival
+- estaban → they / you-plural were
+- escribes → you write
+- a ti te gusta → you like
+- déselo → give it to him / her / them; give it to you
+
+==============================
+PROMPT: system_prompt4.txt
+==============================
+- se cae → (he / she / it) falls
+- pesqué → (I) caught
+- sumar → to add
+- bañarse → to bathe
+- tratar → to try
+- se dice → it is said
+- festival → festival
+- estaban → (they / you-plural) were
+- escribes → (you) write
+- a ti te gusta → you like (it)
+- déselo → (you) give it to him/her
+
+==============================
+PROMPT: system_prompt5.txt
+==============================
+- se cae → (he/she/it) falls / fall down
+- pesqué → (I) caught, fished
+- sumar → (to) add, sum
+- bañarse → (to) bathe, take a bath
+- tratar → (to) try, attempt; treat, deal with
+- se dice → it is said
+- festival → festival
+- estaban → (they/you-all) were
+- escribes → (you) write, are writing
+- a ti te gusta → you like it
+- déselo → (you formal - imperative) give it to him/her/them
+
+==============================
+PROMPT: system_prompt6.txt
+==============================
+- se cae → (he / she / it) falls
+- pesqué → (I) caught
+- sumar → (to) sum, add
+- bañarse → (to) bathe oneself
+- tratar → (to) try, treat
+- se dice → it is said
+- festival → festival
+- estaban → (they / you-plural) were
+- escribes → (you) write
+- a ti te gusta → you like (it)
+- déselo → (you informal imperative) give it to him/her
+
+==============================
+PROMPT: system_prompt7.txt
+==============================
+- se cae → (he / she / it) falls
+- pesqué → (I) caught
+- sumar → (to) sum, add
+- bañarse → (to) bathe oneself
+- tratar → (to) try, treat
+- se dice → it is said
+- festival → festival
+- estaban → (they / you-plural) were
+- escribes → (you) write
+- a ti te gusta → you like (it)
+- déselo → (you formal imperative) give it to him / her
