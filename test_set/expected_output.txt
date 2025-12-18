@@ -8,3 +8,4 @@
 {"word":"eran","definition":"(they / you-plural) were"},
 {"word":"escribes","definition":"(you) write"},
 {"word":"a ti te gusta","definition":"you like (it)"}
+{"word":déselo","definition":"(you informal - imperative) give it to them, give it to her, give it to him"}
