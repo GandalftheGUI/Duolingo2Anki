@@ -58,8 +58,6 @@ lindo,"beautiful, lovely, nice","cute, pretty, handsome","cute, pretty, handsome
 ```
 See [examples/enhanced_words_from_duo.csv](examples/enhanced_words_from_duo.csv.example) for example output.
 
----
-
 # Overview
 
 This project started as a personal attempt to improve Spanish vocabulary retention, but after manually correcting 100+ vocab flashcards, I saw it for what it really was: <ins>a small, tightly-scoped **data cleaning and LLM evaluation pipeline** project.</ins> 😎
@@ -161,8 +159,6 @@ What I want during review is clarity:
 
 Manually fixing thousands of entries was not realistic (I am a lazy engineer who strives to automate as much as possible after all), which led to the second phase.
 
----
-
 ## Part 2: LLM-Assisted Definition Improvement
 
 ### Objective
@@ -251,8 +247,6 @@ The script batches requests, retries failures, and guarantees output order match
 Spanish encodes subject and meaning directly in verb forms far more than English does. Many original definitions omit that information, which makes comprehension harder later when reading or listening.
 
 By reflecting subject only when the Spanish form encodes it, the resulting flashcards reinforce complete ideas rather than isolated stems.
-
----
 
 ## Outcome
 
