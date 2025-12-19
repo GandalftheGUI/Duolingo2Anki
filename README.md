@@ -48,7 +48,7 @@ plaza,"plaza, bullring, seat"
 ```
 
 Note: The full Duolingo export is intentionally not included.
-See (examples/words_from_duo.csv)[examples/words_from_duo.csv.example] for a representative sample.
+See [examples/words_from_duo.csv](examples/words_from_duo.csv.example) for a representative sample.
 
 ### Run the pipeline
 ```bash
@@ -67,7 +67,7 @@ word,definition,model_definition,cleaned_definition
 ```
 
 Example output:
-(examples/enhanced_words_from_duo.csv)[examples/enhanced_words_from_duo.csv.example]
+[examples/enhanced_words_from_duo.csv](examples/enhanced_words_from_duo.csv.example)
 
 ---
 
