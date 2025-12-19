@@ -238,8 +238,8 @@ The script batches requests, retries failures, and guarantees output order match
 
 | Spanish | Duolingo Definition | Improved Definition |  |
 |---------|---------------------|---------------------|--|
-| empuje | drive, go, drove | (you formal) push | _corrected the original which was just plain wrong_ |
-| se ríe | laugh | (he / she / it) laughs | _original was correct, but the new version has enough context to know which verb form is being secified_ |
+| empuje | drive, go, drove | (you formal) push | _more specific and more correct_ |
+| se ríe | laugh | (he / she / it) laughs | _original was correct, but the new version has enough context to know which verb form it is |
 | al salir | (I) left, left | when leaving | _another example of correcting an incorrect definition_ |
 
 (More results can be seen here: [enhanced_words.csv](examples/enhanced_words_from_duo.csv.example))
