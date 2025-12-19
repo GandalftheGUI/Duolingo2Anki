@@ -191,10 +191,10 @@ This approach produced better results because it encoded patterns from real exam
 
 From there, the process became systematic:
 
-2. Run my new system prompts against a fixed test set.
-3. Compare outputs side-by-side.
-4. Look for regressions, verbosity, and rule violations.
-4. Generate a new system prompt that attempts to fix issues with previous iterations.
+1. Run my new system prompts against a fixed test set.
+1. Compare outputs side-by-side.
+1. Look for regressions, verbosity, and rule violations.
+1. Generate a new system prompt that attempts to fix issues with previous iterations.
 
 Some prompts were too permissive and ignored formatting constraints. Others were overly strict and produced unnatural English. I generated prompts until I felt performance has plateaued and clear tradeoffs had immerged. In the end, ended up with 7 different prompts  (check them out in the [prompts folder](prompts/)) and selecting a final prompt was straightforward.
 
