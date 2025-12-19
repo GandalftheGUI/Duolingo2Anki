@@ -2,6 +2,9 @@
 
 <img width="978" height="415" alt="image" src="https://github.com/user-attachments/assets/51752d02-0d1f-48eb-85b2-fd0281b41bff" />
 
+## TL;DR
+
+LLM-powered pipeline that extracts Duolingo vocabulary, refines definitions with controlled prompts, and produces an Anki-import-ready CSV.
 
 ## Overview
 
@@ -17,13 +20,6 @@ The end result is a pipeline that:
 - produces output optimized for spaced repetition in Anki
 
 While the downstream use case is language learning, the work itself centers on **data extraction, transformation, evaluation, and iteration with LLMs**.
-
-## TL;DR
-
-- Extracts Duolingo vocabulary into CSV
-- Uses a fixed system prompt + Qwen 2.5 32B to normalize definitions
-- Preserves provenance and original order
-- Outputs an updated Anki-ready CSV
 
 ---
 
@@ -47,7 +43,7 @@ solamente,"only, just"
 plaza,"plaza, bullring, seat"
 ```
 
-Note: The full Duolingo export is intentionally not included.
+Note: The full Duolingo word list is not included due to data ownership limitations; please use your own export to reproduce results.
 See [examples/words_from_duo.csv](examples/words_from_duo.csv.example) for a representative sample.
 
 ### Run the pipeline
