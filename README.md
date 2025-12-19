@@ -236,12 +236,11 @@ The script batches requests, retries failures, and guarantees output order match
 
 ### Example Results
 
-| Spanish | Duolingo Definition | Improved Definition |  |
-|---------|---------------------|---------------------|--|
-| empuje | drive, go, drove | (you formal) push | _more specific and more correct_ |
-| se ríe | laugh | (he / she / it) laughs | _original was correct, but the new version has enough context to know which verb form it is_ |
-| al salir | (I) left, left | when leaving | _another example of correcting an incorrect definition_ |
-
+| Spanish | Duolingo Definition | Improved Definition |
+|---------|---------------------|---------------------|
+| empuje | drive, go, drove | (you formal) push | 
+| se ríe | laugh | (he / she / it) laughs | 
+| al salir | (I) left, left | when leaving |
 (More results can be seen here: [enhanced_words.csv](examples/enhanced_words_from_duo.csv.example))
 
 Spanish encodes subject and meaning directly in verb forms far more than English does. Many original definitions omit that information, which makes comprehension harder later when reading or listening.
