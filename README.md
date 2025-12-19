@@ -5,7 +5,7 @@
 
 ## Overview
 
-This project started as a personal attempt to improve Spanish vocabulary retention, but after manually correcting 100+ vocab flashcards, I saw it for what it really was: a small, <ins>tightly-scoped **data cleaning and LLM evaluation pipeline** project.</ins> 😎
+This project started as a personal attempt to improve Spanish vocabulary retention, but after manually correcting 100+ vocab flashcards, I saw it for what it really was: <ins>a small, tightly-scoped **data cleaning and LLM evaluation pipeline** project.</ins> 😎
 
 The core problem was not language learning itself. Duolingo exposes a large amount of semi-structured data through a UI, provides no export functionality, and ships definitions that are poorly suited for reuse. Rather than manually fixing thousands of entries, I treated this as an engineering problem: extract messy data, normalize it into a clean schema, and apply LLMs in a controlled, repeatable way (I am actually learning Spainish after all and will have more vocab words in the future).
 
