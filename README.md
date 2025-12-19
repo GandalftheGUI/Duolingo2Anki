@@ -6,23 +6,6 @@
 
 LLM-powered pipeline that extracts Duolingo vocabulary, refines definitions with controlled prompts, and produces an Anki-import-ready CSV.
 
-## Overview
-
-This project started as a personal attempt to improve Spanish vocabulary retention, but after manually correcting 100+ vocab flashcards, I saw it for what it really was: <ins>a small, tightly-scoped **data cleaning and LLM evaluation pipeline** project.</ins> 😎
-
-The core problem was not language learning itself. Duolingo exposes a large amount of semi-structured data through a UI, provides no export functionality, and ships definitions that are poorly suited for reuse. Rather than manually fixing thousands of entries, I treated this as an engineering problem: extract messy data, normalize it into a clean schema, and apply LLMs in a controlled, repeatable way (I am actually learning Spainish after all and will have more vocab words in the future).
-
-The end result is a pipeline that:
-
-- extracts ~2,500 vocabulary entries from Duolingo
-- cleans and normalizes inconsistent definitions
-- applies LLM-assisted transformations under strict constraints
-- produces output optimized for spaced repetition in Anki
-
-While the downstream use case is language learning, the work itself centers on **data extraction, transformation, evaluation, and iteration with LLMs**.
-
----
-
 ## How to run
 
 ### Prerequisites
@@ -64,6 +47,23 @@ word,definition,model_definition,cleaned_definition
 
 Example output:
 [examples/enhanced_words_from_duo.csv](examples/enhanced_words_from_duo.csv.example)
+
+---
+
+# Overview
+
+This project started as a personal attempt to improve Spanish vocabulary retention, but after manually correcting 100+ vocab flashcards, I saw it for what it really was: <ins>a small, tightly-scoped **data cleaning and LLM evaluation pipeline** project.</ins> 😎
+
+The core problem was not language learning itself. Duolingo exposes a large amount of semi-structured data through a UI, provides no export functionality, and ships definitions that are poorly suited for reuse. Rather than manually fixing thousands of entries, I treated this as an engineering problem: extract messy data, normalize it into a clean schema, and apply LLMs in a controlled, repeatable way (I am actually learning Spainish after all and will have more vocab words in the future).
+
+The end result is a pipeline that:
+
+- extracts ~2,500 vocabulary entries from Duolingo
+- cleans and normalizes inconsistent definitions
+- applies LLM-assisted transformations under strict constraints
+- produces output optimized for spaced repetition in Anki
+
+While the downstream use case is language learning, the work itself centers on **data extraction, transformation, evaluation, and iteration with LLMs**.
 
 ---
 
