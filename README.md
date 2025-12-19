@@ -207,4 +207,4 @@ The result is a repeatable, auditable pipeline that turns noisy third-party data
 
 Studying is faster, recall is clearer, and the system can be rerun any time new vocabulary is added.
 
-The Spanish use case was the motivation, but the core takeaway is about applying LLMs as constrained transformation tools, not oracles. As such they should be evaluated with the same rigor as any other component in a data pipeline.
+The Spanish use case was the motivation, but the core takeaway is about applying LLMs as constrained transformation tools, not oracles. As such, they should be evaluated with the same rigor as any other component in a data pipeline.
