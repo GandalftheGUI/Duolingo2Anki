@@ -1,5 +1,8 @@
 # Duolingo2Anki
 
+<img width="1026" height="459" alt="image" src="https://github.com/user-attachments/assets/abbd7cd0-41d7-4c8a-95bd-69c40c3c6dd1" />
+
+
 ## Overview
 
 This project started as a personal attempt to improve Spanish vocabulary retention, but after manually correcting 100+ vocab flashcards, I saw it for what it really was: a small, tightly-scoped **data cleaning and LLM evaluation pipeline** project.
