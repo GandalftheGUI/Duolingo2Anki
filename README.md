@@ -2,9 +2,14 @@
 
 <img width="978" height="415" alt="image" src="https://github.com/user-attachments/assets/51752d02-0d1f-48eb-85b2-fd0281b41bff" />
 
+LLM-powered pipeline for extracting, cleaning, and normalizing Duolingo vocabulary into Anki-ready flashcards.
+
 ## TL;DR
 
-LLM-powered pipeline that extracts Duolingo vocabulary, refines definitions with controlled prompts, and produces an Anki-import-ready CSV.
+- Extracts Duolingo vocabulary into CSV
+- Uses a fixed system prompt + Qwen 2.5 32B to normalize definitions
+- Preserves provenance and original order
+- Outputs Anki-ready flashcards
 
 ## How to run
 
