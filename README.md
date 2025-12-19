@@ -75,8 +75,6 @@ The end result is a pipeline that:
 
 While the downstream use case is language learning, the work itself centers on **data extraction, transformation, evaluation, and iteration with LLMs**.
 
----
-
 ## Objective
 
 Build a repeatable pipeline that takes noisy, semi-structured third-party data and transforms it into high-quality, task-specific output.
@@ -88,8 +86,6 @@ Concretely, this involved:
 - using LLMs as transformation tools rather than black boxes
 - evaluating prompts and models empirically
 - preserving provenance and debuggability throughout the pipeline
-
----
 
 ## Context
 
