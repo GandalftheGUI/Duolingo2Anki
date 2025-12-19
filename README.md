@@ -211,6 +211,13 @@ se ríe,laugh,"(he/she/it) laughs, is laughing","(he/she/it) laughs"
 al salir,"(I) left, left","when leaving","when leaving"
 ```
 
+| Spanish | Duolingo definition | Improved definition |
+|--------|---------------------|--------------------|
+| empuje | drive, go, drove | (you formal imperative) push |
+| se ríe | laugh | (he/she/it) laughs, is laughing |
+| al salir | (I) left, left | when leaving |
+
+
 Compared to the original Duolingo definitions, the improved versions:
 
 - Remove unrelated or misleading meanings.
