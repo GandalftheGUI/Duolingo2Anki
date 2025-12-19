@@ -115,8 +115,6 @@ Rather than automate the UI, the simplest solution was manual:
 
 This produced a single, albeit very large HTML file containing all vocabulary entries and definitions.
 
----
-
 ### Converting HTML into a CSV
 
 The saved HTML file was ~13MB and effectively one long line of markup, making it impractical to inspect directly.
@@ -164,6 +162,8 @@ What I want during review is clarity:
 ```
 
 Manually fixing thousands of entries was not realistic (I am a lazy engineer who strives to automate as much as possible after all), which led to the second phase.
+
+---
 
 ## Part 2: LLM-Assisted Definition Improvement
 
