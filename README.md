@@ -73,7 +73,7 @@ The end result is a pipeline that:
 
 While the downstream use case is language learning, the work itself centers on **data extraction, transformation, evaluation, and iteration with LLMs**.
 
-## Objective
+### Objective
 
 Build a repeatable pipeline that takes noisy, semi-structured third-party data and transforms it into high-quality, task-specific output.
 
@@ -85,7 +85,7 @@ Concretely, this involved:
 - evaluating prompts and models empirically
 - preserving provenance and debuggability throughout the pipeline
 
-## Context
+### Context
 
 While learning Spanish with Duolingo, I've accumulated 2,500+ vocabulary entries. Duolingo’s built-in review vocabulary tools are limited (to put it mildly), and the English definitions provided are often ambiguous, overly broad, or actively misleading for recall-based study (i.e. flashcards).
 
