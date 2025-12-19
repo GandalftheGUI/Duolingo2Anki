@@ -45,8 +45,14 @@ The output CSV preserves the original word order and includes full provenance:
 word,definition,model_definition,cleaned_definition
 ```
 
-Example output:
-[examples/enhanced_words_from_duo.csv](examples/enhanced_words_from_duo.csv.example)
+### Ouput format
+```csv
+word,duolingo_definition,model_definition,cleaned_definition
+solamente,"only, just","only, just","only, just"
+plaza,"plaza, bullring, seat","square, plaza","square, plaza"
+lindo,"beautiful, lovely, nice","cute, pretty, handsome","cute, pretty, handsome"
+```
+See [examples/enhanced_words_from_duo.csv](examples/enhanced_words_from_duo.csv.example) for example output.
 
 ---
 
