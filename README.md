@@ -3,7 +3,7 @@ LLM-powered pipeline for extracting, cleaning, and normalizing Duolingo vocabula
 
 <img width="978" height="415" alt="image" src="https://github.com/user-attachments/assets/51752d02-0d1f-48eb-85b2-fd0281b41bff" />
 
-## TL;DR
+### TL;DR
 
 - Extracts Duolingo vocabulary into CSV
 - Uses a fixed system prompt + Qwen 2.5 32B to normalize definitions
