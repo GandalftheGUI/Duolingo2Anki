@@ -1,11 +1,11 @@
 # Duolingo2Anki
 
-<img width="1026" height="459" alt="image" src="https://github.com/user-attachments/assets/abbd7cd0-41d7-4c8a-95bd-69c40c3c6dd1" />
+<img width="978" height="415" alt="image" src="https://github.com/user-attachments/assets/51752d02-0d1f-48eb-85b2-fd0281b41bff" />
 
 
 ## Overview
 
-This project started as a personal attempt to improve Spanish vocabulary retention, but after manually correcting 100+ vocab flashcards, I saw it for what it really was: a small, tightly-scoped **data cleaning and LLM evaluation pipeline** project.
+This project started as a personal attempt to improve Spanish vocabulary retention, but after manually correcting 100+ vocab flashcards, I saw it for what it really was: a small, <ins>tightly-scoped **data cleaning and LLM evaluation pipeline** project.</ins> 😎
 
 The core problem was not language learning itself. Duolingo exposes a large amount of semi-structured data through a UI, provides no export functionality, and ships definitions that are poorly suited for reuse. Rather than manually fixing thousands of entries, I treated this as an engineering problem: extract messy data, normalize it into a clean schema, and apply LLMs in a controlled, repeatable way (I am actually learning Spainish after all and will have more vocab words in the future).
 
