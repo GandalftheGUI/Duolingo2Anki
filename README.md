@@ -236,11 +236,11 @@ The script batches requests, retries failures, and guarantees output order match
 
 ### Example Results
 
-| Spanish | Duolingo Definition | Improved Definition |
-|---------|---------------------|---------------------|
-| empuje | drive, go, drove | (you formal) push |
-| se ríe | laugh | (he / she / it) laughs |
-| al salir | (I) left, left | when leaving |
+| Spanish | Duolingo Definition | Improved Definition |  |
+|---------|---------------------|---------------------|--|
+| empuje | drive, go, drove | (you formal) push | _this is just plain wrong_ |
+| se ríe | laugh | (he / she / it) laughs | _correct, but not specific enough_ |
+| al salir | (I) left, left | when leaving | _also wrong_ |
 
 (More results can be seen here: [enhanced_words.csv](examples/enhanced_words_from_duo.csv.example))
 
