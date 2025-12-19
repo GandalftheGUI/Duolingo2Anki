@@ -179,7 +179,7 @@ Automatically improve Duolingo's English definitions so they are:
 ### Generating Initial System Prompts
 Before automating anything, I had already spent significant time manually correcting flashcards with ChatGPT. Over time, this became an implicit feedback loop: rejecting grammar explanations, correcting vague output, and reinforcing what “good” looked like.
 
-The first step was to capture that context. I asked ChatGPT to summarize the entire conversation into a single system prompt. This became system_prompt1.
+The first step was to capture that context. I asked ChatGPT to summarize the entire conversation into a single system prompt. This became [system_prompt1](prompts/system_prompt1.txt).
 
 It wasn’t perfect, but it established a baseline.
 
