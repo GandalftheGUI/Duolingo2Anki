@@ -1,8 +1,7 @@
 # Duolingo2Anki
+LLM-powered pipeline for extracting, cleaning, and normalizing Duolingo vocabulary into Anki-ready flashcards.
 
 <img width="978" height="415" alt="image" src="https://github.com/user-attachments/assets/51752d02-0d1f-48eb-85b2-fd0281b41bff" />
-
-LLM-powered pipeline for extracting, cleaning, and normalizing Duolingo vocabulary into Anki-ready flashcards.
 
 ## TL;DR
 
