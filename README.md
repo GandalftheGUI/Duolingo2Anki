@@ -99,6 +99,7 @@ Now that I've put my engineering hat on, I need to answer some questions:
 - How do you evaluate and iterate without guessing?
 
 ---
+---
 
 ## Part 1: Data Extraction and Normalization
 
