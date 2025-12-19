@@ -18,6 +18,57 @@ The end result is a pipeline that:
 
 While the downstream use case is language learning, the work itself centers on **data extraction, transformation, evaluation, and iteration with LLMs**.
 
+## TL;DR
+
+- Extracts Duolingo vocabulary into CSV
+- Uses a fixed system prompt + Qwen 2.5 32B to normalize definitions
+- Preserves provenance and original order
+- Outputs an updated Anki-ready CSV
+
+---
+
+## How to run
+
+### Prerequisites
+
+- Python 3.10+
+- [Ollama](https://ollama.com/) installed and running
+- A local LLM pulled (recommended: `qwen2.5:32b`)
+
+```bash
+ollama pull qwen2.5:32b
+```
+### Input format
+The script expects a CSV with at least these columns:
+
+```csv
+word,definition
+solamente,"only, just"
+plaza,"plaza, bullring, seat"
+```
+
+Note: The full Duolingo export is intentionally not included.
+See (examples/words_from_duo.csv)[examples/words_from_duo.csv.example] for a representative sample.
+
+### Run the pipeline
+```bash
+python3 improve_definitions.py \
+  --in words_from_duo.csv \
+  --out enhanced_words.csv \
+  --system prompts/system_prompt5.txt \
+  --model qwen2.5:32b \
+  --batch 100 \
+  --temperature 0
+```
+The output CSV preserves the original word order and includes full provenance:
+
+```csv
+word,definition,model_definition,cleaned_definition
+```
+
+Example output:
+(examples/enhanced_words_from_duo.csv)[examples/enhanced_words_from_duo.csv.example]
+
 ---
 
 ## Objective
