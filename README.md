@@ -248,7 +248,7 @@ Spanish encodes subject and meaning directly in verb forms far more than English
 
 By reflecting subject only when the Spanish form encodes it, the resulting flashcards reinforce complete ideas rather than isolated stems.
 
-## Outcome
+# Outcome
 
 The result is a repeatable, auditable pipeline that turns noisy third-party data into clean, task-specific output.
 
