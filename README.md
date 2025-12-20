@@ -242,7 +242,7 @@ The script batches requests, retries failures, and guarantees output order match
 | se ríe | laugh | (he / she / it) laughs | 
 | al salir | (I) left, left | when leaving |
 
-More results can be found in [enhanced_words.csv](examples/enhanced_words_from_duo.csv.example))
+More results can be found in [enhanced_words.csv](examples/enhanced_words_from_duo.csv.example)
 
 Spanish encodes subject and meaning directly in verb forms far more than English does. Many original definitions omit that information, which makes comprehension harder later when reading or listening.
 
