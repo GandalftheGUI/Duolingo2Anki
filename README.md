@@ -209,7 +209,7 @@ Key observations:
 - Moving from Qwen 32B to LLaMA 70B did not materially improve output quality, but did significantly increase runtime.
 - Qwen 2.5 32B provided the best balance between quality, instruction adherence, and performance.
 
-(Take at the [test_runs folder](test_runs/) for a more granular look at the how the performance differed)
+Take at the [test_runs folder](test_runs/) for a more granular look at the how the performance differed.
 
 ### Pipeline Automation
 
@@ -241,7 +241,8 @@ The script batches requests, retries failures, and guarantees output order match
 | empuje | drive, go, drove | (you formal) push | 
 | se ríe | laugh | (he / she / it) laughs | 
 | al salir | (I) left, left | when leaving |
-(More results can be seen here: [enhanced_words.csv](examples/enhanced_words_from_duo.csv.example))
+
+More results can be found in [enhanced_words.csv](examples/enhanced_words_from_duo.csv.example))
 
 Spanish encodes subject and meaning directly in verb forms far more than English does. Many original definitions omit that information, which makes comprehension harder later when reading or listening.
 
